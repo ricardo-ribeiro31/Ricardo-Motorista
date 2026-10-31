@@ -1,0 +1,61 @@
+/* ===== Paleta e tipografia (edite aqui para mudar a identidade) ===== */
+:root{
+  --black:#000000; --black-brown:#0D0B08;
+  --gold:#E9B96E; --gold-dark:#B8863B;
+  --text:#F4EFE6; --muted:#A79C89; --line:#3A2F1C;
+  --gradient:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Josefin Sans","Segoe UI",system-ui,sans-serif;
+  --radius:6px; --max:720px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:hidden;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+.container{max-width:var(--max);margin:0 auto;padding:0 22px}
+.gold{color:var(--gold)}
+/* Hero */
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:64px;padding-bottom:64px}
+.rule{width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-bottom:32px}
+.brand{font-family:var(--serif);font-weight:700;font-size:clamp(2.3rem,9vw,4rem);letter-spacing:.04em;line-height:1.1}
+.kicker{color:var(--gold);letter-spacing:.35em;font-size:.85rem;margin-top:16px;font-weight:600}
+.values{color:var(--muted);letter-spacing:.18em;font-size:.72rem;margin-top:10px}
+.intro{color:var(--muted);margin:32px 0 40px;font-weight:300;max-width:560px}
+/* Botões */
+.btn{display:inline-block;background:var(--gradient);color:var(--black-brown);font-family:var(--sans);font-weight:600;font-size:1rem;letter-spacing:.06em;
+  padding:16px 30px;border:0;border-radius:var(--radius);text-decoration:none;cursor:pointer;min-height:52px;transition:transform .2s,box-shadow .2s,filter .2s}
+.btn:hover{filter:brightness(1.07);box-shadow:0 8px 24px -10px rgba(233,185,110,.55);transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn.full{width:100%;margin-top:12px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* Seções */
+.section{padding:88px 0;border-top:1px solid var(--line)}
+.section.alt{background:var(--black-brown)}
+.title{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,6vw,2.4rem);text-align:center;margin-bottom:12px}
+.subtitle{text-align:center;color:var(--muted);margin-bottom:40px;font-weight:300}
+.services{list-style:none;margin-top:32px}
+.services li{display:flex;align-items:center;gap:20px;padding:20px 4px;border-bottom:1px solid var(--line);font-size:1.08rem}
+.services li:first-child{border-top:1px solid var(--line)}
+.services svg{width:30px;height:30px;flex:none;fill:none;stroke:var(--gold);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+/* Formulário */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:18px;display:flex;flex-direction:column}
+label{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.opt{text-transform:none;letter-spacing:0}
+input,select,textarea{width:100%;background:var(--black-brown);color:var(--text);border:1px solid var(--line);border-radius:var(--radius);
+  font:inherit;font-size:16px;padding:14px;min-height:50px;color-scheme:dark;transition:border-color .2s}
+textarea{resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none}
+input::placeholder,textarea::placeholder{color:#6f6656}
+.invalid{border-color:#c9645a}
+select:disabled{opacity:.45;cursor:not-allowed}
+.hint{color:var(--muted);font-size:.78rem;margin-top:6px}
+.err{color:#e08a7f;font-size:.8rem;margin-top:6px;min-height:0}
+.err:empty{display:none}
+.note{color:var(--muted);text-align:center;font-size:.88rem;margin-top:16px}
+/* Rodapé */
+.footer{text-align:center;padding-top:56px;padding-bottom:56px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;max-width:none}
+.f-name{font-family:var(--serif);color:var(--text);font-size:1.3rem;margin-bottom:6px}
+.f-phone{display:inline-block;margin-top:12px;color:var(--gold);text-decoration:none;font-size:1.1rem;letter-spacing:.05em;padding:8px}
+@media (max-width:479px){.row{grid-template-columns:1fr;gap:0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
