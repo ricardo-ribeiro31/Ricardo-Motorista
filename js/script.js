@@ -36,21 +36,64 @@ function buildTimes() {
 data.addEventListener("change", buildTimes);
 buildTimes();
 
-/* Paradas dinâmicas */
-const temParadas = $("temParadas"), qtd = $("qtdParadas"), qtdWrap = $("qtdWrap"), paradasBox = $("paradas");
+/* ===== Paradas dinâmicas ===== */
+const temParadas = $("temParadas");
+const qtd = $("qtdParadas");
+const qtdWrap = $("qtdWrap");
+const paradasBox = $("paradas");
+
 function buildStops() {
-  const on = temParadas.value === "sim", n = on ? +qtd.value : 0;
+  const on = temParadas.value === "sim";
+
+  // Exibe ou esconde o campo de quantidade
   qtdWrap.hidden = !on;
-  const old = [...paradasBox.querySelectorAll("input")].map((i) => i.value);
+
+  // Habilita ou bloqueia o campo
+  qtd.disabled = !on;
+
+  // Torna obrigatório somente quando houver paradas
+  qtd.required = on;
+
+  // Se não houver paradas, limpa tudo
+  if (!on) {
+    qtd.value = "";
+    paradasBox.innerHTML = "";
+    return;
+  }
+
+  // Recupera os endereços já preenchidos
+  const n = Number(qtd.value) || 0;
+  const old = [...paradasBox.querySelectorAll("input")]
+    .map((i) => i.value);
+
   paradasBox.innerHTML = "";
+
+  // Cria os campos de endereço conforme a quantidade escolhida
   for (let i = 1; i <= n; i++) {
-    paradasBox.insertAdjacentHTML("beforeend",
-      `<div class="field"><label for="parada${i}">Parada ${i}</label><input id="parada${i}" required maxlength="160" placeholder="Endereço da parada"><small class="err"></small></div>`);
+    paradasBox.insertAdjacentHTML(
+      "beforeend",
+      `<div class="field">
+        <label for="parada${i}">Parada ${i}</label>
+        <input
+          id="parada${i}"
+          required
+          maxlength="160"
+          placeholder="Endereço da parada"
+        >
+        <small class="err"></small>
+      </div>`
+    );
+
     $("parada" + i).value = old[i - 1] || "";
   }
 }
+
+// Monitora alterações nos campos
 temParadas.addEventListener("change", buildStops);
 qtd.addEventListener("change", buildStops);
+
+// Executa ao carregar a página
+buildStops();
 
 /* Validação */
 function setErr(el, msg) {
