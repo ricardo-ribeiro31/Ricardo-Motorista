@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ricardo Ribeiro | Motorista Particular em Belo Horizonte</title>
+  <meta name="description" content="Motorista particular em Belo Horizonte e região metropolitana. Aeroporto, consultas, eventos, reuniões e viagens intermunicipais. Agende pelo WhatsApp.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Ricardo Ribeiro | Motorista Particular em Belo Horizonte">
+  <meta property="og:description" content="Transporte particular com pontualidade, conforto e atendimento personalizado. Agende pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"TaxiService","name":"Ricardo Ribeiro — Motorista Particular","provider":{"@type":"Person","name":"Ricardo Ribeiro","telephone":"+55-31-98668-1445"},"areaServed":"Belo Horizonte e região metropolitana, MG","telephone":"+55-31-98668-1445","url":"https://wa.me/5531986681445"}
+  </script>
+</head>
+<body>
+<main>
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="rule" aria-hidden="true"></div>
+    <h1 class="brand"><span class="gold">RICARDO</span> RIBEIRO</h1>
+    <p class="kicker">MOTORISTA PARTICULAR</p>
+    <p class="values">SEGURANÇA · PONTUALIDADE · CONFORTO</p>
+    <p class="intro">Transporte particular em Belo Horizonte e região metropolitana, com pontualidade, conforto e atendimento personalizado. Você combina o horário com antecedência e fala diretamente comigo, do agendamento até o destino.</p>
+    <a href="#agendar" class="btn">Agendar minha corrida</a>
+  </header>
+
+  <!-- SERVIÇOS -->
+  <section class="section alt" aria-labelledby="servicos-t">
+    <div class="container">
+      <h2 id="servicos-t" class="title">Serviços</h2>
+      <ul class="services">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 16l20-6-2-2-7 2-5-6H6l3 7-5 1-2-2H1l1 6z"/><path d="M2 21h20"/></svg>Aeroporto</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v6a5 5 0 0 0 10 0V3"/><path d="M10 14v2a5 5 0 0 0 10 0v-3"/><circle cx="20" cy="11" r="2"/></svg>Consultas médicas e exames</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="14" r="6"/><circle cx="16" cy="14" r="6"/><path d="M9 4l3 3 3-3"/></svg>Casamentos, festas e eventos</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Reuniões</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20l4-16M18 20L14 4"/><path d="M12 7v2M12 12v2M12 17v2"/></svg>Viagens Intermunicipais</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AGENDAMENTO -->
+  <section id="agendar" class="section" aria-labelledby="agendar-t">
+    <div class="container">
+      <h2 id="agendar-t" class="title">Agende sua corrida</h2>
+      <p class="subtitle">Preencha os dados e o pedido chega no meu WhatsApp. Respondo confirmando o horário.</p>
+      <form id="form" novalidate>
+        <div class="field"><label for="nome">Nome do passageiro</label><input id="nome" name="nome" autocomplete="name" required maxlength="80"><small class="err"></small></div>
+        <div class="row">
+          <div class="field"><label for="data">Data da corrida</label><input id="data" name="data" type="date" required><small class="err"></small></div>
+          <div class="field"><label for="hora">Horário</label><select id="hora" name="hora" required><option value="">Selecione</option></select><small class="hint">Agendamentos com no mínimo 2 horas de antecedência.</small><small class="err"></small></div>
+        </div>
+        <div class="field"><label for="origem">Local de partida</label><input id="origem" name="origem" required maxlength="160" placeholder="Endereço, hotel ou aeroporto"><small class="err"></small></div>
+        <div class="field"><label for="destino">Destino</label><input id="destino" name="destino" required maxlength="160" placeholder="Endereço, hotel ou aeroporto"><small class="err"></small></div>
+        <div class="row">
+          <div class="field"><label for="temParadas">Haverá paradas no trajeto?</label><select id="temParadas" name="temParadas" required><option value="nao">Não</option><option value="sim">Sim</option></select></div>
+          <div class="field" id="qtdWrap" hidden><label for="qtdParadas">Quantas paradas?</label><select id="qtdParadas" name="qtdParadas"><option value="1">1 parada</option><option value="2">2 paradas</option><option value="3">3 paradas</option></select></div>
+        </div>
+        <div id="paradas"></div>
+        <div class="row">
+          <div class="field"><label for="passageiros">Número de passageiros</label><select id="passageiros" name="passageiros"><option>1 passageiro</option><option>2 passageiros</option><option>3 passageiros</option><option>4 passageiros</option></select></div>
+          <div class="field"><label for="bagagem">Bagagem</label><select id="bagagem" name="bagagem"><option>Sem bagagem</option><option>Mala de bordo</option><option>1 a 2 malas grandes</option><option>3 ou mais malas</option></select></div>
+        </div>
+        <div class="field"><label for="pagamento">Forma de pagamento</label><select id="pagamento" name="pagamento"><option>Dinheiro</option><option>Pix</option></select></div>
+        <div class="field"><label for="obs">Observações <span class="opt">(opcional)</span></label><textarea id="obs" name="obs" rows="3" maxlength="500"></textarea></div>
+        <button type="submit" class="btn full">Enviar pedido pelo WhatsApp</button>
+        <p class="note" id="note" role="status">Quase lá! Ao continuar, abriremos o WhatsApp com sua solicitação pronta. É só confirmar o envio.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer container">
+  <p class="f-name">Ricardo Ribeiro</p>
+  <p>Motorista particular · Belo Horizonte e região metropolitana</p>
+  <a href="https://wa.me/5531986681445" target="_blank" rel="noopener" class="f-phone">(31) 98668-1445</a>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
